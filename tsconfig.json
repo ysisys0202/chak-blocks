@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "target": "ESNext",
+    "module": "ESNext",
+    "lib": ["ESNext", "DOM"],
+    "declaration": true,
+    "strict": true,
+    "moduleResolution": "bundler",
+    "jsx": "react-jsx",
+    "emitDeclarationOnly": true,
+    "allowImportingTsExtensions": true,
+    "types": ["react", "react-dom"],
+    "skipLibCheck": true
+  },
+  "exclude": ["**/*.stories.tsx", "**/*.stories.mdx", "**/*.test.tsx"]
+}
