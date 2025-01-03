@@ -10,8 +10,8 @@
     "jsx": "react-jsx",
     "emitDeclarationOnly": true,
     "allowImportingTsExtensions": true,
-    "types": ["react", "react-dom"],
+    "types": ["react", "react-dom", "vitest/globals"],
     "skipLibCheck": true
   },
-  "exclude": ["**/*.stories.tsx", "**/*.stories.mdx", "**/*.test.tsx"]
+  "exclude": ["**/*.stories.tsx", "**/*.stories.mdx"]
 }
