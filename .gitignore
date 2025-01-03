@@ -30,6 +30,7 @@ yarn-error.log
 # Yarn 2 (Berry) or higher (if using yarn 2+)
 .pnp.*
 .yarn/*
+.yarnrc.yml
 *storybook.log
 # Node.js
 node_modules/
