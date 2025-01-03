@@ -1,5 +1,5 @@
 import { ButtonHTMLAttributes } from "react";
-import { test } from "./index.css.ts";
+import { test } from "./style.css.ts";
 
 type Props = {
   size: "sm" | "md" | "lg";
@@ -7,7 +7,7 @@ type Props = {
 
 const Button = ({ size, children, ...props }: Props) => {
   console.log(props);
-  return <button className={test}>Test</button>;
+  return <button className={`size-${size} ${test}`}>Test</button>;
 };
 
 export default Button;
