@@ -93,7 +93,7 @@ export const decorationStyles = styleVariants({
     textDecoration: "line-through",
   },
   strong: {
-    fontWeight: 700,
+    fontWeight: "700 !important",
   },
   italic: {
     fontStyle: "italic",
@@ -111,9 +111,5 @@ export const typographyStyles = recipe({
   variants: {
     variant: variantStyles,
     theme: themeStyles,
-    mark: {
-      padding: "0 2px",
-      backgroundColor: colors.yellow[200],
-    },
   },
 });
