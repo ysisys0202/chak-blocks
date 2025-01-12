@@ -1,4 +1,5 @@
 import { vanillaExtractPlugin } from "@vanilla-extract/vite-plugin";
+import path from "path";
 import { defineConfig, UserConfig } from "vitest/config";
 
 export default defineConfig({
@@ -7,5 +8,10 @@ export default defineConfig({
     globals: true,
     environment: "jsdom",
     setupFiles: "./src/test/setupTests.ts",
+  },
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "src"), // `src` 디렉토리를 `@`로 별칭
+    },
   },
 });
