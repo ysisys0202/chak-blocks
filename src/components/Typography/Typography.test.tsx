@@ -1,10 +1,9 @@
-// Typography.test.tsx
 import { render, screen } from "@testing-library/react";
 import Typography, {
-  typographyDefaultProps,
+  defaultTypographyProps,
   TypographyProps,
 } from "./Typography";
-import { typography as typographyStyles } from "./style.css.ts";
+import { typographyStyles, decorationStyles } from "./style.css.ts";
 
 describe("Typography 컴포넌트 단위 테스트", () => {
   const variants: Exclude<TypographyProps["variant"], undefined>[] = [
@@ -17,13 +16,15 @@ describe("Typography 컴포넌트 단위 테스트", () => {
     "text2",
     "text3",
   ];
-  const types: Exclude<TypographyProps["type"], undefined>[] = [
+  const themes: Exclude<TypographyProps["theme"], undefined>[] = [
     "primary",
     "secondary",
+    "info",
     "tertiary",
     "success",
     "error",
     "warning",
+    "light",
   ];
   const hasProps = [true, false];
   test("prop으로 전달된 children이 렌더링된다.", () => {
@@ -36,13 +37,13 @@ describe("Typography 컴포넌트 단위 테스트", () => {
     const { container } = render(<Typography>typography</Typography>);
     const component = screen.getByText("typography");
     expect(component).toHaveClass(
-      typographyStyles[typographyDefaultProps.variant]
-    );
-    expect(component).toHaveClass(
-      typographyStyles[typographyDefaultProps.type]
+      typographyStyles({
+        variant: defaultTypographyProps.variant,
+        theme: defaultTypographyProps.theme,
+      })
     );
     expect(
-      container.querySelector(typographyDefaultProps.as)
+      container.querySelector(defaultTypographyProps.as)
     ).toBeInTheDocument();
   });
   test("prop으로 전달된 className이 적용된다.", () => {
@@ -54,45 +55,49 @@ describe("Typography 컴포넌트 단위 테스트", () => {
   test.each(variants)("variant prop이 적용된다.", (variant) => {
     render(<Typography variant={variant}>typography</Typography>);
     const component = screen.getByText("typography");
-    expect(component).toHaveClass(typographyStyles[variant]);
+    expect(component).toHaveClass(
+      typographyStyles({
+        variant,
+      })
+    );
   });
 
-  test.each(types)("type prop이 적용된다.", (type) => {
-    render(<Typography type={type}>typography</Typography>);
+  test.each(themes)("theme prop이 적용된다.", (theme) => {
+    render(<Typography theme={theme}>typography</Typography>);
     const component = screen.getByText("typography");
-    expect(component).toHaveClass(typographyStyles[type]);
+    expect(component).toHaveClass(typographyStyles({ theme }));
   });
 
   test.each(hasProps)("mark prop이 적용된다.", (hasProp) => {
     render(<Typography mark={hasProp}>typography</Typography>);
     const component = screen.getByText("typography");
     hasProp
-      ? expect(component).toHaveClass(typographyStyles.mark)
-      : expect(component).not.toHaveClass(typographyStyles.mark);
+      ? expect(component).toHaveClass(decorationStyles.mark)
+      : expect(component).not.toHaveClass(decorationStyles.mark);
   });
 
   test.each(hasProps)("del prop이 적용된다.", (hasProp) => {
     render(<Typography del={hasProp}>typography</Typography>);
     const component = screen.getByText("typography");
     hasProp
-      ? expect(component).toHaveClass(typographyStyles.del)
-      : expect(component).not.toHaveClass(typographyStyles.del);
+      ? expect(component).toHaveClass(decorationStyles.del)
+      : expect(component).not.toHaveClass(decorationStyles.del);
   });
 
   test.each(hasProps)("strong prop이 적용된다.", (hasProp) => {
     render(<Typography strong={hasProp}>typography</Typography>);
     const component = screen.getByText("typography");
     hasProp
-      ? expect(component).toHaveClass(typographyStyles.strong)
-      : expect(component).not.toHaveClass(typographyStyles.strong);
+      ? expect(component).toHaveClass(decorationStyles.strong)
+      : expect(component).not.toHaveClass(decorationStyles.strong);
   });
 
   test.each(hasProps)("italic prop이 적용된다.", (hasProp) => {
     render(<Typography italic={hasProp}>typography</Typography>);
     const component = screen.getByText("typography");
     hasProp
-      ? expect(component).toHaveClass(typographyStyles.italic)
-      : expect(component).not.toHaveClass(typographyStyles.italic);
+      ? expect(component).toHaveClass(decorationStyles.italic)
+      : expect(component).not.toHaveClass(decorationStyles.italic);
   });
   test("color prop이 적용된다.", () => {
     const color = "blue";
@@ -105,7 +110,7 @@ describe("Typography 컴포넌트 단위 테스트", () => {
   test("type, color prop 모두 전달될 시 color prop이 우선 적용된다.", () => {
     const color = "blue";
     render(
-      <Typography type="secondary" color={color}>
+      <Typography theme="secondary" color={color}>
         typography
       </Typography>
     );

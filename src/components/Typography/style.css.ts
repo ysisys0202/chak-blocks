@@ -1,35 +1,31 @@
 import { createVar, style, styleVariants } from "@vanilla-extract/css";
+import { recipe } from "@vanilla-extract/recipes";
 import * as colors from "@/constants/colors";
 
 export const textColor = createVar();
 
-const typographyBase = style({
-  margin: 0,
-  padding: 0,
-  boxSizing: "border-box",
-  fontWeight: 400,
-  color: textColor,
-});
-
-const titleBase = style({
+const titleBase = {
   fontWeight: 500,
   lineHeight: 1.2,
-});
+};
 
-const textBase = style({
+const textBase = {
   fontWeight: 400,
   lineHeight: 1.4,
-});
+};
 
-export const typography = styleVariants({
-  title1: [titleBase, style({ fontSize: 38 })],
-  title2: [titleBase, style({ fontSize: 30 })],
-  title3: [titleBase, style({ fontSize: 28 })],
-  title4: [titleBase, style({ fontSize: 24 })],
-  title5: [titleBase, style({ fontSize: 20 })],
-  text1: [textBase, style({ fontSize: 16 })],
-  text2: [textBase, style({ fontSize: 14 })],
-  text3: [textBase, style({ fontSize: 13 })],
+export const variantStyles = {
+  title1: { fontSize: 38, ...titleBase },
+  title2: { fontSize: 30, ...titleBase },
+  title3: { fontSize: 28, ...titleBase },
+  title4: { fontSize: 24, ...titleBase },
+  title5: { fontSize: 20, ...titleBase },
+  text1: { fontSize: 16, ...textBase },
+  text2: { fontSize: 14, ...textBase },
+  text3: { fontSize: 13, ...textBase },
+};
+
+const themeStyles = {
   primary: [
     style({
       vars: {
@@ -79,6 +75,16 @@ export const typography = styleVariants({
       },
     }),
   ],
+  light: [
+    style({
+      vars: {
+        [textColor]: colors.white,
+      },
+    }),
+  ],
+};
+
+export const decorationStyles = styleVariants({
   mark: {
     padding: "0 2px",
     backgroundColor: colors.yellow[200],
@@ -94,4 +100,20 @@ export const typography = styleVariants({
   },
 });
 
-export default typographyBase;
+export const typographyStyles = recipe({
+  base: {
+    margin: 0,
+    padding: 0,
+    boxSizing: "border-box",
+    fontWeight: 400,
+    color: textColor,
+  },
+  variants: {
+    variant: variantStyles,
+    theme: themeStyles,
+    mark: {
+      padding: "0 2px",
+      backgroundColor: colors.yellow[200],
+    },
+  },
+});

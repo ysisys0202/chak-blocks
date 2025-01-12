@@ -1,6 +1,7 @@
 import { HTMLAttributes, forwardRef, ReactNode, ElementType } from "react";
 import { assignInlineVars } from "@vanilla-extract/dynamic";
-import typographyBase, { typography, textColor } from "./style.css";
+import { typographyStyles, decorationStyles, textColor } from "./style.css";
+import { combineClassNames } from "@/utils/common";
 
 export type TypographyProps = {
   variant?:
@@ -12,7 +13,15 @@ export type TypographyProps = {
     | "text1"
     | "text2"
     | "text3";
-  type?: "primary" | "secondary" | "tertiary" | "success" | "error" | "warning";
+  theme?:
+    | "primary"
+    | "info"
+    | "secondary"
+    | "tertiary"
+    | "success"
+    | "error"
+    | "warning"
+    | "light";
   mark?: boolean;
   del?: boolean;
   strong?: boolean;
@@ -22,9 +31,9 @@ export type TypographyProps = {
   children: ReactNode;
 } & HTMLAttributes<HTMLHeadingElement>;
 
-export const typographyDefaultProps = {
+export const defaultTypographyProps = {
   variant: "text1" as Exclude<TypographyProps["variant"], undefined>,
-  type: "primary" as Exclude<TypographyProps["type"], undefined>,
+  theme: "primary" as Exclude<TypographyProps["theme"], undefined>,
   mark: false,
   del: false,
   strong: false,
@@ -35,13 +44,13 @@ export const typographyDefaultProps = {
 const Typography = forwardRef<HTMLHeadingElement, TypographyProps>(
   (
     {
-      variant = typographyDefaultProps.variant,
-      type = typographyDefaultProps.type,
-      mark = typographyDefaultProps.mark,
-      del = typographyDefaultProps.del,
-      strong = typographyDefaultProps.strong,
-      italic = typographyDefaultProps.italic,
-      as: Component = typographyDefaultProps.as,
+      variant = defaultTypographyProps.variant,
+      theme = defaultTypographyProps.theme,
+      mark = defaultTypographyProps.mark,
+      del = defaultTypographyProps.del,
+      strong = defaultTypographyProps.strong,
+      italic = defaultTypographyProps.italic,
+      as: Component = defaultTypographyProps.as,
       color,
       children,
       className,
@@ -50,18 +59,17 @@ const Typography = forwardRef<HTMLHeadingElement, TypographyProps>(
     },
     ref
   ) => {
-    const classNames = [
+    const classNames = combineClassNames(
       className,
-      typographyBase,
-      typography[variant],
-      type && typography[type],
-      mark && typography.mark,
-      del && typography.del,
-      strong && typography.strong,
-      italic && typography.italic,
-    ]
-      .filter(Boolean)
-      .join(" ");
+      typographyStyles({
+        variant,
+        theme,
+      }),
+      mark && decorationStyles.mark,
+      del && decorationStyles.del,
+      strong && decorationStyles.strong,
+      italic && decorationStyles.italic
+    );
 
     const styles = {
       ...(style || {}),
