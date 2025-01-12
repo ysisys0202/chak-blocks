@@ -1,3 +1,4 @@
+import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import Typography from "./Typography";
 
@@ -13,7 +14,7 @@ const meta = {
       description: "Typography의 종류입니다.",
       control: "select",
     },
-    type: {
+    theme: {
       description: "Typography의 지정 색상입니다.",
       control: "select",
     },
@@ -69,72 +70,72 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     variant: "text1",
-    type: "primary",
+    theme: "primary",
     children: "Typography",
   },
 };
 
-export const Title1: Story = {
+export const Title: Story = {
   args: {
-    variant: "title1",
     color: "primary",
     children: "Title 1",
   },
-};
-
-export const Title2: Story = {
-  args: {
-    variant: "title2",
-    color: "primary",
-    children: "Title 2",
+  render: (args) => {
+    return (
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: 8,
+        }}
+      >
+        <Typography {...args} variant="title1" as="h1">
+          Title 1
+        </Typography>
+        <Typography {...args} variant="title2" as="h2">
+          Title 2
+        </Typography>
+        <Typography {...args} variant="title3" as="h3">
+          Title 3
+        </Typography>
+        <Typography {...args} variant="title4" as="h4">
+          Title 4
+        </Typography>
+        <Typography {...args} variant="title5" as="h5">
+          Title 5
+        </Typography>
+      </div>
+    );
   },
 };
 
-export const Title3: Story = {
-  args: {
-    variant: "title3",
-    color: "primary",
-    children: "Title 3",
-  },
-};
-
-export const Title4: Story = {
-  args: {
-    variant: "title4",
-    color: "primary",
-    children: "Title 4",
-  },
-};
-
-export const Title5: Story = {
-  args: {
-    variant: "title5",
-    color: "primary",
-    children: "Title 5",
-  },
-};
-
-export const Text1: Story = {
+export const Text: Story = {
   args: {
     variant: "text1",
     color: "primary",
+    as: "p",
     children: "Text 1",
   },
-};
-
-export const Text2: Story = {
-  args: {
-    variant: "text2",
-    color: "primary",
-    children: "Text 2",
-  },
-};
-
-export const Text3: Story = {
-  args: {
-    variant: "text3",
-    color: "primary",
-    children: "Text 3",
+  render: (args) => {
+    return (
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: 8,
+        }}
+      >
+        <Typography {...args} variant="text1">
+          Text 1
+        </Typography>
+        <Typography {...args} variant="text2">
+          Text 2
+        </Typography>
+        <Typography {...args} variant="text3">
+          Text 3
+        </Typography>
+      </div>
+    );
   },
 };
 
@@ -159,7 +160,6 @@ export const Delete: Story = {
     children: "Delete Text",
   },
 };
-
 export const Strong: Story = {
   args: {
     variant: "text1",
