@@ -75,3 +75,7 @@ export const yellow = {
   800: "#7A3108",
   900: "#602706",
 };
+
+export const white = "#fff";
+
+export const black = "#000";
