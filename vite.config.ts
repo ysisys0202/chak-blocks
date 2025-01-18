@@ -14,4 +14,7 @@ export default defineConfig({
       "@": path.resolve(__dirname, "src"), // `src` 디렉토리를 `@`로 별칭
     },
   },
+  optimizeDeps: {
+    exclude: ["DocsRenderer-CFRXHY34-NWNQ4M6E.js"],
+  },
 });
