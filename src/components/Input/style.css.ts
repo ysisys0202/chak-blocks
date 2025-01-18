@@ -7,20 +7,16 @@ const sizeStyles = {
     borderRadius: "4px",
     padding: "6px 8px",
     ...typographyVariantStyles.text2,
-    selectors: {
-      "&:placeholder": {
-        ...typographyVariantStyles.text2,
-      },
+    "::placeholder": {
+      ...typographyVariantStyles.text2,
     },
   },
   md: {
     borderRadius: "6px",
     padding: "8px",
     ...typographyVariantStyles.text1,
-    selectors: {
-      "&:placeholder": {
-        ...typographyVariantStyles.text1,
-      },
+    "::placeholder": {
+      ...typographyVariantStyles.text1,
     },
   },
   lg: {
@@ -28,10 +24,8 @@ const sizeStyles = {
     padding: "10px 8px",
     ...typographyVariantStyles.title5,
     fontWeight: "400 !important",
-    selectors: {
-      "&:placeholder": {
-        ...typographyVariantStyles.title5,
-      },
+    "::placeholder": {
+      ...typographyVariantStyles.title5,
     },
   },
 };
@@ -63,13 +57,11 @@ export const inputStyles = recipe({
     outline: "none",
     transition: "border-color 100ms ease-in-out",
     color: colors.gray[800],
-    selectors: {
-      "&:hover": {
-        borderColor: colors.blue[200],
-      },
-      "&:focus": {
-        borderColor: colors.blue[500],
-      },
+    ":hover": {
+      borderColor: colors.blue[200],
+    },
+    ":focus": {
+      borderColor: colors.blue[500],
     },
   },
   variants: {
