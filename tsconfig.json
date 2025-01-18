@@ -17,5 +17,5 @@
       "@/*": ["./src/*"]
     }
   },
-  "exclude": ["**/*.stories.tsx", "**/*.stories.mdx"]
+  "exclude": ["**/*.stories.tsx", "**/*.stories.mdx", "vite.config.ts"]
 }
