@@ -14,7 +14,7 @@ export const defaultInputProps = {
   placeholder: "값을 입력해주세요.",
 };
 
-const Input = forwardRef<HTMLInputElement, InputProps>(
+export const Input = forwardRef<HTMLInputElement, InputProps>(
   (
     {
       inputSize = defaultInputProps.inputSize,
@@ -43,5 +43,3 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
     );
   }
 );
-
-export default Input;

@@ -17,7 +17,7 @@ export const defaultTagProps = {
   as: "div",
 };
 
-const Tag = forwardRef<HTMLElement, TagProps>(
+export const Tag = forwardRef<HTMLElement, TagProps>(
   (
     {
       variant = defaultTagProps.variant,
@@ -45,5 +45,3 @@ const Tag = forwardRef<HTMLElement, TagProps>(
     );
   }
 );
-
-export default Tag;

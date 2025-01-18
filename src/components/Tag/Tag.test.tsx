@@ -1,6 +1,6 @@
 // Tag.test.tsx
 import { render, screen } from "@testing-library/react";
-import Tag, { defaultTagProps, TagProps } from "./Tag.tsx";
+import { Tag, defaultTagProps, TagProps } from "./Tag.tsx";
 import { tagStyles } from "./style.css.ts";
 
 describe("Tag 컴포넌트 단위 테스트", () => {

@@ -26,7 +26,7 @@ export const defaultDividerProps = {
   as: "hr",
 };
 
-const Divider = forwardRef<HTMLElement, DividerProps>(
+export const Divider = forwardRef<HTMLElement, DividerProps>(
   (
     {
       theme = defaultDividerProps.theme,
@@ -59,5 +59,3 @@ const Divider = forwardRef<HTMLElement, DividerProps>(
     );
   }
 );
-
-export default Divider;

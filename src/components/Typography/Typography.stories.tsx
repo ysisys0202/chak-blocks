@@ -1,6 +1,6 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import Typography from "./Typography";
+import { Typography } from "./Typography";
 
 const meta = {
   title: "Atom/Typography",

@@ -1,7 +1,7 @@
 // Button.test.tsx
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import Button, { defaultButtonProps, ButtonProps } from "./Button.tsx";
+import { Button, defaultButtonProps, ButtonProps } from "./Button.tsx";
 import { buttonStyles } from "./style.css.ts";
 
 describe("Button 컴포넌트 단위 테스트", () => {

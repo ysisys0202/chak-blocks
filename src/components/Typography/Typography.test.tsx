@@ -1,5 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import Typography, {
+import {
+  Typography,
   defaultTypographyProps,
   TypographyProps,
 } from "./Typography";

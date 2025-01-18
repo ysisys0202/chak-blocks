@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import Divider, { defaultDividerProps, DividerProps } from "./Divider.tsx";
+import { Divider, defaultDividerProps, DividerProps } from "./Divider.tsx";
 import { dividerStyles } from "./style.css.ts";
 
 describe("Divider 컴포넌트 단위 테스트", () => {

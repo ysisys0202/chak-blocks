@@ -22,7 +22,7 @@ export const defaultButtonProps = {
   as: "button",
 };
 
-const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       variant = defaultButtonProps.variant,
@@ -50,5 +50,3 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     );
   }
 );
-
-export default Button;

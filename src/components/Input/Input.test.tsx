@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import Input, { defaultInputProps, InputProps } from "./Input.tsx";
+import { Input, defaultInputProps, InputProps } from "./Input.tsx";
 import { inputStyles } from "./style.css.ts";
 
 describe("Input 컴포넌트 단위 테스트", () => {

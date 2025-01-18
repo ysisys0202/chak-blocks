@@ -41,7 +41,7 @@ export const defaultTypographyProps = {
   as: "p",
 };
 
-const Typography = forwardRef<HTMLHeadingElement, TypographyProps>(
+export const Typography = forwardRef<HTMLHeadingElement, TypographyProps>(
   (
     {
       variant = defaultTypographyProps.variant,
@@ -83,5 +83,3 @@ const Typography = forwardRef<HTMLHeadingElement, TypographyProps>(
     );
   }
 );
-
-export default Typography;
