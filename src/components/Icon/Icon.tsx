@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, SVGAttributes } from "react";
 import { gray } from "@/constants/colors";
 import { useIcon } from "./useIcon";
 
@@ -6,7 +6,7 @@ export type IconProps = {
   name: "arrow" | "book" | "chevron" | "infomation" | "warning";
   size?: number;
   color?: string;
-};
+} & SVGAttributes<SVGSVGElement>;
 
 export type SvgrComponent = React.FunctionComponent<
   React.SVGProps<SVGSVGElement> & {
