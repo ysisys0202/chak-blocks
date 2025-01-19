@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "baseUrl": "./",
     "rootDir": "./src",
     "outDir": "./dist",
     "target": "ESNext",
@@ -11,11 +12,17 @@
     "jsx": "react-jsx",
     "emitDeclarationOnly": true,
     "allowImportingTsExtensions": true,
-    "types": ["react", "react-dom", "vitest/globals"],
+    "types": [
+      "react",
+      "react-dom",
+      "vitest/globals",
+      "vite-plugin-svgr/client"
+    ],
     "skipLibCheck": true,
     "paths": {
       "@/*": ["./src/*"]
     }
   },
+  "include": ["src/**/*", "svg.d.ts"],
   "exclude": ["**/*.stories.tsx", "**/*.stories.mdx", "vite.config.ts"]
 }

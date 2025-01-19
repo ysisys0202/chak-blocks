@@ -1,5 +1,6 @@
 import esbuild from "esbuild";
 import { vanillaExtractPlugin } from "@vanilla-extract/esbuild-plugin";
+import svgr from "esbuild-plugin-svgr";
 import pkg from "./package.json" assert { type: "json" };
 
 const dev = process.argv.includes("--dev");
@@ -16,7 +17,7 @@ const baseConfig = {
   sourcemap: true,
   outdir: "dist",
   external,
-  plugins: [vanillaExtractPlugin()],
+  plugins: [vanillaExtractPlugin(), svgr()],
 };
 
 const createBuildConfig = (format, outExtension = "") => ({
