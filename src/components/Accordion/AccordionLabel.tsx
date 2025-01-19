@@ -14,7 +14,13 @@ export const AccordionLabel = forwardRef<
   HTMLHeadingElement,
   AccordionLabelProps
 >(({ children, className, as: Components = "span", ...props }, ref) => {
-  const { size } = useAccordionContext();
+  const context = useAccordionContext();
+  if (!context) {
+    throw new Error(
+      "AccordionLabel 컴포넌트는 Accordion 컴포넌트 안에서 사용 가능합니다."
+    );
+  }
+  const { size } = context;
   const classNames = combineClassNames(
     className,
     accordionLabelStyles({ size })

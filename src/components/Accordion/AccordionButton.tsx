@@ -13,7 +13,13 @@ export const AccordionButton = forwardRef<
   HTMLButtonElement,
   AccordionButtonProps
 >(({ accordionKey = "", className, onClick, children }, ref) => {
-  const { onAccordionClick, size } = useAccordionContext();
+  const context = useAccordionContext();
+  if (!context) {
+    throw new Error(
+      "AccordionIcon 컴포넌트는 Accordion 컴포넌트 안에서 사용 가능합니다."
+    );
+  }
+  const { onAccordionClick, size } = context;
   const classNames = combineClassNames(
     className,
     accordionButtonStyles({ size })
