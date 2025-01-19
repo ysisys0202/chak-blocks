@@ -3,3 +3,4 @@ export * from "./Button";
 export * from "./Divider";
 export * from "./Tag";
 export * from "./Input";
+export * from "./Accordion";
