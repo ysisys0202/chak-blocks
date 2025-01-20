@@ -5,6 +5,7 @@ import book from "./svgs/book.svg?react";
 import chevron from "./svgs/chevron.svg?react";
 import infomation from "./svgs/infomation.svg?react";
 import warning from "./svgs/warning.svg?react";
+import starFilled from "./svgs/star-filled.svg?react";
 
 export const svgs = {
   arrow,
@@ -12,4 +13,5 @@ export const svgs = {
   chevron,
   infomation,
   warning,
+  "star-filled": starFilled,
 };

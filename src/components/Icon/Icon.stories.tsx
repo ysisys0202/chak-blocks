@@ -45,6 +45,7 @@ export const Default: Story = {
       "chevron",
       "infomation",
       "warning",
+      "star-filled",
     ];
 
     return (
