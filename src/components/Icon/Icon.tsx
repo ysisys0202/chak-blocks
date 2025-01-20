@@ -26,7 +26,14 @@ export const Icon = forwardRef<SVGSVGElement, IconProps>(
     }
 
     return (
-      <Icon width={size} height={size} stroke={color} ref={ref} {...props} />
+      <Icon
+        width={size}
+        height={size}
+        stroke={color}
+        fill={color}
+        ref={ref}
+        {...props}
+      />
     );
   }
 );
