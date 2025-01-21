@@ -1,12 +1,12 @@
 import { createContext, useContext } from "react";
 
-export type AccordionContextType = {
+export type AccordionContextValues = {
   activeItems: string[];
   size: "sm" | "md" | "lg";
   onAccordionClick: (item: string) => void;
 };
 
-export const AccordionContext = createContext<AccordionContextType>({
+export const AccordionContext = createContext<AccordionContextValues>({
   activeItems: [] as string[],
   size: "md",
   onAccordionClick: (item) => {},
