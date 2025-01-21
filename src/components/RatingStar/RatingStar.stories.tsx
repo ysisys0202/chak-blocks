@@ -35,6 +35,6 @@ export const Default: Story = {
     value: 100,
   },
   render: (args) => {
-    return <RatingStar value={50} data-testId="star" className="star" />;
+    return <RatingStar {...args} data-testId="star" className="star" />;
   },
 };
