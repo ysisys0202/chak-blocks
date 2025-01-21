@@ -3,7 +3,19 @@ import { gray } from "@/constants/colors";
 import { useIcon } from "./useIcon";
 
 export type IconProps = {
-  name: "arrow" | "book" | "chevron" | "infomation" | "warning" | "star-filled";
+  name:
+    | "arrow"
+    | "book"
+    | "chevron"
+    | "infomation"
+    | "warning"
+    | "star-filled"
+    | "check"
+    | "warning-triangle"
+    | "heart"
+    | "heart-filled"
+    | "close";
+
   size?: number;
   color?: string;
 } & SVGAttributes<SVGSVGElement>;

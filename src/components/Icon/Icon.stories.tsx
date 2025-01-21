@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { gray } from "../../constants/colors";
 import { Icon, IconProps } from "./Icon";
 import { Typography } from "../Typography/Typography";
+import { svgs } from "./index";
 
 const meta = {
   title: "Atom/Icon",
@@ -39,14 +40,7 @@ export const Default: Story = {
     name: "arrow",
   },
   render: () => {
-    const icons: IconProps["name"][] = [
-      "arrow",
-      "book",
-      "chevron",
-      "infomation",
-      "warning",
-      "star-filled",
-    ];
+    const icons = Object.keys(svgs) as IconProps["name"][];
 
     return (
       <div
