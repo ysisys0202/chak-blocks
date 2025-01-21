@@ -15,6 +15,7 @@
 - Tag ✅
 - Typography ✅
 - Card ✅
+- RatingStar ✅
 
   🎨 [스토리북](https://main--678d86d905c56bc74be0b58c.chromatic.com)
 
@@ -23,7 +24,6 @@
 ### Todo
 
 - Toast
-- StarRating
 - InputField
 - Skeleton
 - ColorChip
