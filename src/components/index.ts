@@ -7,3 +7,4 @@ export * from "./Accordion";
 export * from "./Icon";
 export * from "./RatingStar";
 export * from "./Skeleton";
+export * from "./ColorChip";
