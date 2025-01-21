@@ -9,3 +9,4 @@ export * from "./RatingStar";
 export * from "./Skeleton";
 export * from "./ColorChip";
 export * from "./Toast";
+export * from "./InputField";
