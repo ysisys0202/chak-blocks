@@ -12,14 +12,8 @@ export type AccordionButtonProps = {
 export const AccordionButton = forwardRef<
   HTMLButtonElement,
   AccordionButtonProps
->(({ accordionKey = "", className, onClick, children }, ref) => {
-  const context = useAccordionContext();
-  if (!context) {
-    throw new Error(
-      "AccordionIcon 컴포넌트는 Accordion 컴포넌트 안에서 사용 가능합니다."
-    );
-  }
-  const { onAccordionClick, size } = context;
+>(({ accordionKey, isActive, className, onClick, children, ...props }, ref) => {
+  const { onAccordionClick, size } = useAccordionContext();
   const classNames = combineClassNames(
     className,
     accordionButtonStyles({ size })
@@ -30,7 +24,12 @@ export const AccordionButton = forwardRef<
     onClick?.(event);
   };
   return (
-    <button className={classNames} onClick={buttonClickHandler} ref={ref}>
+    <button
+      className={classNames}
+      onClick={buttonClickHandler}
+      ref={ref}
+      {...props}
+    >
       {children}
     </button>
   );

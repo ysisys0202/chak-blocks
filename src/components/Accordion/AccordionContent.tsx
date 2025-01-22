@@ -16,16 +16,10 @@ export type AccordionContentProps = {
 export const AccordionContent = forwardRef<
   HTMLDivElement,
   AccordionContentProps
->(({ isActive, className, style, children }, ref) => {
+>(({ isActive, className, accordionKey, style, children, ...props }, ref) => {
   const [height, setHeight] = useState<number>(0);
 
-  const context = useAccordionContext();
-  if (!context) {
-    throw new Error(
-      "AccordionContent 컴포넌트는 Accordion 컴포넌트 안에서 사용 가능합니다."
-    );
-  }
-  const { size } = context;
+  const { size } = useAccordionContext();
 
   const classNames = combineClassNames(
     className,
@@ -33,7 +27,9 @@ export const AccordionContent = forwardRef<
   );
   const styles = {
     ...(style || {}),
-    ...assignInlineVars({ [accordionContentHeightVar]: `${height}px` }),
+    ...assignInlineVars({
+      [accordionContentHeightVar]: `${height}px`,
+    }),
   };
   const innerRef = useRef<HTMLDivElement>(null);
 
@@ -45,7 +41,7 @@ export const AccordionContent = forwardRef<
   }, [isActive]);
 
   return (
-    <div ref={ref} className={classNames} style={styles}>
+    <div ref={ref} className={classNames} style={styles} {...props}>
       <div className="content-inner" ref={innerRef}>
         {children}
       </div>

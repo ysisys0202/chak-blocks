@@ -13,21 +13,28 @@ export type AccordionLabelProps = {
 export const AccordionLabel = forwardRef<
   HTMLHeadingElement,
   AccordionLabelProps
->(({ children, className, as: Components = "span", ...props }, ref) => {
-  const context = useAccordionContext();
-  if (!context) {
-    throw new Error(
-      "AccordionLabel 컴포넌트는 Accordion 컴포넌트 안에서 사용 가능합니다."
+>(
+  (
+    {
+      children,
+      className,
+      isActive,
+      accordionKey,
+      as: Components = "span",
+      ...props
+    },
+    ref
+  ) => {
+    const { size } = useAccordionContext();
+
+    const classNames = combineClassNames(
+      className,
+      accordionLabelStyles({ size })
+    );
+    return (
+      <Components className={classNames} ref={ref} {...props}>
+        {children}
+      </Components>
     );
   }
-  const { size } = context;
-  const classNames = combineClassNames(
-    className,
-    accordionLabelStyles({ size })
-  );
-  return (
-    <Components className={classNames} ref={ref} {...props}>
-      {children}
-    </Components>
-  );
-});
+);

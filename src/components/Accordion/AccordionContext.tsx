@@ -12,4 +12,10 @@ export const AccordionContext = createContext<AccordionContextValues>({
   onAccordionClick: (item) => {},
 });
 
-export const useAccordionContext = () => useContext(AccordionContext);
+export const useAccordionContext = () => {
+  const context = useContext(AccordionContext);
+  if (!context) {
+    throw new Error("Accordion 컴포넌트 안에서 사용 가능합니다.");
+  }
+  return context;
+};

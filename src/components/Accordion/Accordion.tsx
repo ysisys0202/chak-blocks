@@ -15,7 +15,7 @@ export type AccordionProps = {
   as?: ElementType;
 } & HTMLAttributes<HTMLElement>;
 
-const defaultAccordionProps = {
+export const defaultAccordionProps = {
   size: "md" as Exclude<AccordionProps["size"], undefined>,
   as: "ul",
 };
