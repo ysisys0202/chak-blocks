@@ -23,7 +23,7 @@ export type ToastProps = {
   title: ReactNode;
   description?: ReactNode;
   as?: ElementType;
-} & HTMLAttributes<HTMLElement>;
+} & HTMLAttributes<HTMLDivElement>;
 
 const iconMap: Map<ToastProps["status"], IconProps["name"]> = new Map([
   ["info", "infomation"],
@@ -32,14 +32,17 @@ const iconMap: Map<ToastProps["status"], IconProps["name"]> = new Map([
   ["warning", "warning-triangle"],
 ]);
 
-export const Toast = forwardRef<HTMLElement, ToastProps>(
+export const defaultToastProps = {
+  status: "info" as ToastProps["status"],
+};
+
+export const Toast = forwardRef<HTMLDivElement, ToastProps>(
   (
     {
-      status = "info",
+      status = defaultToastProps.status,
       title,
       description,
       className,
-      as: Component = "div",
       ...props
     },
     ref
@@ -50,7 +53,7 @@ export const Toast = forwardRef<HTMLElement, ToastProps>(
       close();
     };
     return (
-      <Component className={classNames} ref={ref} {...props}>
+      <div className={classNames} ref={ref} data-testId="toast" {...props}>
         <Icon
           name={iconMap.get(status) as IconProps["name"]}
           color={colors.white}
@@ -61,6 +64,7 @@ export const Toast = forwardRef<HTMLElement, ToastProps>(
           variant="text"
           className={toastCloseButtonStyle}
           onClick={handleCloseButonClick}
+          data-testId="toast-close-button"
         >
           <Icon name="close" color="white" size={28} />
         </Button>
@@ -74,7 +78,7 @@ export const Toast = forwardRef<HTMLElement, ToastProps>(
             </Typography>
           )}
         </div>
-      </Component>
+      </div>
     );
   }
 );
