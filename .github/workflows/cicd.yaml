@@ -63,6 +63,10 @@ jobs:
         run: yarn version apply
       - name: Stage changes
         run: git commit -am "📦 패키지 버전 업데이트 $(node -p "require('./package.json').version")"
+      - name: Set Git Author Config
+        run: |
+          git config --global user.name "${{ secrets.AUTHOR_NAME }}"
+          git config --global user.email "${{ secrets.AUTHOR_EMAIL }}"
       - name: Push changes and tags
         run: |
           git push
