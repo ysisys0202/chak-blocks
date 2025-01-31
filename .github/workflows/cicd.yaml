@@ -8,10 +8,10 @@
 
 name: CI/CD
 on:
-  push:
-    branches: [main, publish]
+  # push:
+  #   branches: [main, publish]
   pull_request:
-    branches: [feature/*, hotfix/*]
+    branches: [feature/**, hotfix/**]
     types: [opened, synchronize, closed]
 
 jobs:
