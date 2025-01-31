@@ -4,10 +4,16 @@ import { ToastProps } from "./Toast";
 export type ToastOptions = Pick<
   ToastProps,
   "status" | "title" | "description"
-> & { duration?: number };
+> & { duration?: number; isClosable?: boolean };
 
 export type ToastContextValues = {
-  open: ({ title, description, status, duration }: ToastOptions) => void;
+  open: ({
+    title,
+    description,
+    status,
+    duration,
+    isClosable,
+  }: ToastOptions) => void;
   close: () => void;
 };
 

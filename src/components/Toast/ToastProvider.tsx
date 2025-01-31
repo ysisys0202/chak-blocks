@@ -51,7 +51,10 @@ export const ToastProvider = ({ children }: PropsWithChildren) => {
         toastOptions &&
         createPortal(
           <ToastContainer>
-            <Toast {...toastOptions} />
+            <Toast
+              {...toastOptions}
+              onClose={toastOptions.isClosable ?? close}
+            />
           </ToastContainer>,
           document.body
         )}

@@ -22,6 +22,7 @@ export type ToastProps = {
   status?: "info" | "success" | "error" | "warning";
   title: ReactNode;
   description?: ReactNode;
+  onClose?: () => void;
   as?: ElementType;
 } & HTMLAttributes<HTMLDivElement>;
 
@@ -42,16 +43,13 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
       status = defaultToastProps.status,
       title,
       description,
+      onClose,
       className,
       ...props
     },
     ref
   ) => {
     const classNames = combineClassNames(className, toastStyles({ status }));
-    const { close } = useToast();
-    const handleCloseButonClick = () => {
-      close();
-    };
     return (
       <div className={classNames} ref={ref} data-testId="toast" {...props}>
         <Icon
@@ -60,14 +58,16 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
           size={24}
           className={toastIconStyle}
         />
-        <Button
-          variant="text"
-          className={toastCloseButtonStyle}
-          onClick={handleCloseButonClick}
-          data-testId="toast-close-button"
-        >
-          <Icon name="close" color="white" size={28} />
-        </Button>
+        {onClose && (
+          <Button
+            variant="text"
+            className={toastCloseButtonStyle}
+            onClick={onClose}
+            data-testId="toast-close-button"
+          >
+            <Icon name="close" color="white" size={28} />
+          </Button>
+        )}
         <div className="content-area">
           <Typography variant="title5" as="strong" theme="light">
             {title}
