@@ -35,6 +35,8 @@ jobs:
   print-event:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
       - name: Print event step
         run: ehco event ${{github.event.pull_request.state}}
   # package-version-update:
