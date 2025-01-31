@@ -1,12 +1,21 @@
+# todo
+# feature, hotfix - PR 생성, 동기화 => 유닛 테스트 (0)
+# feature, hotfix - PR 닫힘
+# ㄴ feature, hoxfix 브랜치 확인
+# ㄴ feature면 minor 버전 업데이트, hotfix면 path 버전 업데이트 (yarn version)
+# main - push => 유닛 테스트
+# publish - push => 유닛 테스트 (0) => 패키지 퍼블리시 (yarn publish)
+
 name: CI/CD
 on:
   push:
     branches: [main, publish]
   pull_request:
-    branches: [feature, hotfix]
-    types: [opened, synchronize]
+    types: [opened, synchronize, closed]
+
 jobs:
   unit-test:
+    if: github.event.pull_request.state != 'closed'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -22,3 +31,35 @@ jobs:
         shell: bash
       - name: Use Unit Test Action
         uses: ./.github/actions/unit-test
+  package-version-update:
+    if: github.event.pull_request.state == 'closed'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 21.4.0
+      - name: Enable Corepack
+        run: corepack enable
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+        shell: bash
+      - name: Determine version bump based on branch
+        run: |
+          if [[ "${{ github.head_ref }}" == feature/* ]]; then
+            echo "versionLevel=minor" >> $GITHUB_ENV
+          elif [[ "${{ github.head_ref }}" == hotfi/* ]]; then
+            echo "versionLevel=patch" >> $GITHUB_ENV
+          else
+            echo "versionLevel=none" >> $GITHUB_ENV
+          fi
+      - name: Print branch name
+        run: yarn version -d ${{github.head_ref}}
+      - name: Print package version
+        run: yarn version -d ${{ env.versionLevel }}
+      # - name: Update package version
+      #   run: yarn version -d ${{ env.versionLevel }}
+      # - name: Apply paackge version
+      #   run: yarn version apply
