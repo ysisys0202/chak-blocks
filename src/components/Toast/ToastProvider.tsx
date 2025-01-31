@@ -53,7 +53,7 @@ export const ToastProvider = ({ children }: PropsWithChildren) => {
           <ToastContainer>
             <Toast
               {...toastOptions}
-              onClose={toastOptions.isClosable ?? close}
+              onClose={toastOptions.isClosable ? close : undefined}
             />
           </ToastContainer>,
           document.body
