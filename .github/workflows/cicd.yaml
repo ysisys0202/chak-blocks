@@ -50,7 +50,7 @@ jobs:
         run: |
           if [[ "${{ github.head_ref }}" == feature/* ]]; then
             echo "versionLevel=minor" >> $GITHUB_ENV
-          elif [[ "${{ github.head_ref }}" == hotfi/* ]]; then
+          elif [[ "${{ github.head_ref }}" == hotfix/* ]]; then
             echo "versionLevel=patch" >> $GITHUB_ENV
           else
             echo "versionLevel=none" >> $GITHUB_ENV
