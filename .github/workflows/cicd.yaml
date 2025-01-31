@@ -1,0 +1,24 @@
+name: CI/CD
+on:
+  push:
+    branches: [main, publish]
+  pull_request:
+    branches: [feature, hotfix]
+    types: [opened, synchronize]
+jobs:
+  unit-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 21.4.0
+      - name: Enable Corepack
+        run: corepack enable
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+        shell: bash
+      - name: Use Unit Test Action
+        uses: ./.github/actions/unit-test

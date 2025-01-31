@@ -1,0 +1,13 @@
+name: "Unit Test"
+description: "Run unit tests"
+inputs:
+  node_version:
+    description: "The Node.js version to use"
+    required: true
+    default: "16"
+runs:
+  using: "composite"
+  steps:
+    - name: Run unit tests
+      run: yarn test
+      shell: bash
