@@ -61,3 +61,9 @@ jobs:
         run: yarn version -d ${{ env.versionLevel }}
       - name: Apply paackge version
         run: yarn version apply
+      - name: Stage changes
+        run: git commit -am "📦 패키지 버전 업데이트 $(node -p "require('./package.json').version")"
+      - name: Push changes and tags
+        run: |
+          git push
+          git push --follow-tags  # 커밋과 태그 푸시
