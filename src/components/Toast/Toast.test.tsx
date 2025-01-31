@@ -189,7 +189,7 @@ describe("Toast 컴포넌트 단위 테스트", () => {
   test("close button을 클릭하면 Toast 컴포넌트가 사라진다.", async () => {
     render(
       <ToastProvider>
-        <ToastContainer title="toast title" duration={100} />
+        <ToastContainer title="toast title" duration={100} isClosable={true} />
       </ToastProvider>
     );
 
