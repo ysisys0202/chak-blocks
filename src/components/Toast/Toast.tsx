@@ -1,10 +1,4 @@
-import {
-  ElementType,
-  forwardRef,
-  HTMLAttributes,
-  ReactNode,
-  useEffect,
-} from "react";
+import { ElementType, forwardRef, HTMLAttributes, ReactNode } from "react";
 import * as colors from "@/constants/colors";
 import { Typography } from "@/components/Typography";
 import { Icon, IconProps } from "@/components/Icon";
@@ -16,7 +10,6 @@ import {
   toastCloseButtonStyle,
 } from "./style.css";
 import { Button } from "../Button";
-import { useToast } from "./ToastContext";
 
 export type ToastProps = {
   status?: "info" | "success" | "error" | "warning";
