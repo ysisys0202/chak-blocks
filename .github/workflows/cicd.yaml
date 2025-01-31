@@ -15,50 +15,55 @@ on:
     types: [opened, synchronize, closed]
 
 jobs:
-  unit-test:
-    if: github.event.pull_request.state != 'closed'
+  # unit-test:
+  #   if: github.event.pull_request.state != 'closed'
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v4
+  #     - name: Set up Node.js
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version: 21.4.0
+  #     - name: Enable Corepack
+  #       run: corepack enable
+  #     - name: Install dependencies
+  #       run: yarn install --frozen-lockfile
+  #       shell: bash
+  #     - name: Use Unit Test Action
+  #       uses: ./.github/actions/unit-test
+  print-event:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 21.4.0
-      - name: Enable Corepack
-        run: corepack enable
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-        shell: bash
-      - name: Use Unit Test Action
-        uses: ./.github/actions/unit-test
-  package-version-update:
-    if: github.event.pull_request.state == 'closed'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 21.4.0
-      - name: Enable Corepack
-        run: corepack enable
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-        shell: bash
-      - name: Determine version bump based on branch
-        run: |
-          if [[ "${{ github.head_ref }}" == feature* ]]; then
-            echo "versionLevel=minor" >> $GITHUB_ENV
-          elif [[ "${{ github.head_ref }}" == hotfix* ]]; then
-            echo "versionLevel=patch" >> $GITHUB_ENV
-          else
-            echo "versionLevel=none" >> $GITHUB_ENV
-          fi
-      - name: Print package version
-        run: yarn version -d ${{ env.versionLevel }}
-      # - name: Update package version
-      #   run: yarn version -d ${{ env.versionLevel }}
-      # - name: Apply paackge version
-      #   run: yarn version apply
+      - name: Print event step
+        run: ehco event ${{github.event.pull_request.state}}
+  # package-version-update:
+  #   if: github.event.pull_request.state == 'closed'
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v4
+  #     - name: Set up Node.js
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version: 21.4.0
+  #     - name: Enable Corepack
+  #       run: corepack enable
+  #     - name: Install dependencies
+  #       run: yarn install --frozen-lockfile
+  #       shell: bash
+  #     - name: Determine version bump based on branch
+  #       run: |
+  #         if [[ "${{ github.head_ref }}" == feature* ]]; then
+  #           echo "versionLevel=minor" >> $GITHUB_ENV
+  #         elif [[ "${{ github.head_ref }}" == hotfix* ]]; then
+  #           echo "versionLevel=patch" >> $GITHUB_ENV
+  #         else
+  #           echo "versionLevel=none" >> $GITHUB_ENV
+  #         fi
+  #     - name: Print package version
+  #       run: yarn version -d ${{ env.versionLevel }}
+  #     # - name: Update package version
+  #     #   run: yarn version -d ${{ env.versionLevel }}
+  #     # - name: Apply paackge version
+  #     #   run: yarn version apply
