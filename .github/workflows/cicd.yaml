@@ -32,7 +32,7 @@ jobs:
   #     - name: Use Unit Test Action
   #       uses: ./.github/actions/unit-test
   package-version-update:
-    # if: github.event.pull_request.state == 'closed'
+    if: github.event.pull_request.state == 'closed'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -55,11 +55,9 @@ jobs:
           else
             echo "versionLevel=none" >> $GITHUB_ENV
           fi
-      - name: Print branch name
-        run: echo branch ${{github.head_ref}}
       - name: Print package version
         run: echo versionLevel ${{ env.versionLevel }}
-      # - name: Update package version
-      #   run: yarn version -d ${{ env.versionLevel }}
+      - name: Update package version
+        run: yarn version -d ${{ env.versionLevel }}
       # - name: Apply paackge version
       #   run: yarn version apply
