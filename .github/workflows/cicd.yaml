@@ -14,25 +14,25 @@ on:
     types: [opened, synchronize, closed]
 
 jobs:
-  unit-test:
-    if: github.event.pull_request.state != 'closed'
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: 21.4.0
-      - name: Enable Corepack
-        run: corepack enable
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-        shell: bash
-      - name: Use Unit Test Action
-        uses: ./.github/actions/unit-test
+  # unit-test:
+  #   if: github.event.pull_request.state != 'closed'
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v4
+  #     - name: Set up Node.js
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version: 21.4.0
+  #     - name: Enable Corepack
+  #       run: corepack enable
+  #     - name: Install dependencies
+  #       run: yarn install --frozen-lockfile
+  #       shell: bash
+  #     - name: Use Unit Test Action
+  #       uses: ./.github/actions/unit-test
   package-version-update:
-    if: github.event.pull_request.state == 'closed'
+    # if: github.event.pull_request.state == 'closed'
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -56,9 +56,9 @@ jobs:
             echo "versionLevel=none" >> $GITHUB_ENV
           fi
       - name: Print branch name
-        run: yarn version -d ${{github.head_ref}}
-      - name: Print package version
-        run: yarn version -d ${{ env.versionLevel }}
+        run: echo branch ${{github.head_ref}}
+      # - name: Print package version
+      #   run: yarn version -d ${{ env.versionLevel }}
       # - name: Update package version
       #   run: yarn version -d ${{ env.versionLevel }}
       # - name: Apply paackge version
