@@ -38,7 +38,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       - name: Print event step
-        run: ehco event ${{github.event.pull_request.state}}
+        run: echo event ${{github.event.pull_request.state}}
   # package-version-update:
   #   if: github.event.pull_request.state == 'closed'
   #   runs-on: ubuntu-latest
