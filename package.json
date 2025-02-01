@@ -1,7 +1,10 @@
 {
   "name": "chak-blocks",
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.0.1",
+  "files": [
+    "dist"
+  ],
   "description": "독서 기록 플랫폼 chak(채크)에서 사용되는 리액트 UI 컴포넌트",
   "main": "index.js",
   "exports": {
