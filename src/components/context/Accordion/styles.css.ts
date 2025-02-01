@@ -2,7 +2,7 @@ import * as colors from "@/constants/colors";
 import { resetStyle } from "@/styles/reset.css";
 import { createVar, style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
-import { variantStyles as typographyVariantStyles } from "@/components/Typography/style.css";
+import { variantStyles as typographyVariantStyles } from "@/components/plain/Typography/style.css";
 
 export const accordionContentHeightVar = createVar();
 

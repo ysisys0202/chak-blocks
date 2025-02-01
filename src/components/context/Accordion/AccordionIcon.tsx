@@ -1,6 +1,6 @@
 import { forwardRef, SVGAttributes } from "react";
 import { useAccordionContext } from "./AccordionContext";
-import { Icon, IconProps } from "@/components/Icon/Icon";
+import { Icon, IconProps } from "@/components/plain/Icon/Icon";
 import { combineClassNames } from "@/utils/common";
 import { accordionIconStyles } from "./styles.css";
 

@@ -1,6 +1,6 @@
 import React, { ElementType, forwardRef, HTMLAttributes } from "react";
 import { gray, yellow } from "@/constants/colors";
-import Icon from "@/components/Icon/Icon";
+import Icon from "@/components/plain/Icon/Icon";
 import { combineClassNames } from "@/utils/common";
 import { ratingStarStyles, ratingStarActiveStyles } from "./style.css";
 

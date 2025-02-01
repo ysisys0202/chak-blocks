@@ -1,6 +1,6 @@
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { Button } from "@/components/Button";
+import { Button } from "@/components/plain/Button";
 import { defaultDuration, ToastProvider } from "./ToastProvider";
 import { ToastOptions, useToast } from "./ToastContext";
 import { toastStyles } from "./style.css";

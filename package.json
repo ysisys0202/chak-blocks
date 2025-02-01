@@ -1,19 +1,23 @@
 {
   "name": "chak-blocks",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "files": [
     "dist"
   ],
   "description": "독서 기록 플랫폼 chak(채크)에서 사용되는 리액트 UI 컴포넌트",
   "main": "index.js",
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+    "./plain": {
+      "import": "./dist/plain/index.js",
+      "require": "./dist/plain/index.cjs"
     },
-    "./style.css": "./dist/index.css"
+    "./context": {
+      "import": "./dist/context/index.js",
+      "require": "./dist/context/index.cjs"
+    },
+    "./plain/style.css": "./dist/plain/index.css",
+    "./context/style.css": "./dist/context/index.css"
   },
   "scripts": {
     "build": "yarn build:js && yarn build:ts",

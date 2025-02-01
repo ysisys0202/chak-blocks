@@ -3,7 +3,7 @@ import {
   Typography,
   defaultTypographyProps,
   TypographyProps,
-} from "./Typography";
+} from "./Typography.tsx";
 import { typographyStyles, decorationStyles } from "./style.css.ts";
 
 describe("Typography 컴포넌트 단위 테스트", () => {

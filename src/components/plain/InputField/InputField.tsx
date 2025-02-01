@@ -1,5 +1,5 @@
 import { forwardRef, HTMLAttributes, ElementType } from "react";
-import { Typography } from "@/components/Typography";
+import { Typography } from "@/components/plain/Typography";
 import { combineClassNames } from "@/utils/common";
 import { inputFieldStyles } from "./style.css";
 

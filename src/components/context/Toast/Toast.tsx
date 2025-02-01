@@ -1,7 +1,7 @@
 import { ElementType, forwardRef, HTMLAttributes, ReactNode } from "react";
 import * as colors from "@/constants/colors";
-import { Typography } from "@/components/Typography";
-import { Icon, IconProps } from "@/components/Icon";
+import { Typography } from "@/components/plain/Typography";
+import { Icon, IconProps } from "@/components/plain/Icon";
 import { combineClassNames } from "@/utils/common";
 import {
   toastStyles,
@@ -9,7 +9,7 @@ import {
   toastDescriptionStyle,
   toastCloseButtonStyle,
 } from "./style.css";
-import { Button } from "../Button";
+import { Button } from "../../plain/Button";
 
 export type ToastProps = {
   status?: "info" | "success" | "error" | "warning";

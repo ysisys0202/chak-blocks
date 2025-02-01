@@ -1,6 +1,6 @@
 import { recipe } from "@vanilla-extract/recipes";
 import * as colors from "@/constants/colors";
-import { variantStyles as typographyVariantStyles } from "@/components/Typography/style.css";
+import { variantStyles as typographyVariantStyles } from "@/components/plain/Typography/style.css";
 
 const sizeStyles = {
   sm: {
