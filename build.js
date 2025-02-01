@@ -9,6 +9,7 @@ const watch = process.argv.includes("--watch");
 
 const external = Object.keys({
   ...pkg.dependencies,
+  ...pkg.devDependencies,
   ...pkg.peerDependencies,
 });
 
