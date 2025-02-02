@@ -14,7 +14,6 @@ const renderAccordion = (
           accordionKey={String(index)}
           data-testId="accordion-item"
           renderChildren={(accordionKey, isActive) => {
-            console.log(isActive);
             return (
               <>
                 <Accordion.Button
