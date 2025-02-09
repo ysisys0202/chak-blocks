@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { Toast, ToastProps } from "./Toast";
 import { ToastProvider } from "./ToastProvider";
 import { useToast } from "./ToastContext";
-import { Button, ButtonProps } from "../Button";
+import { Button, ButtonProps } from "../../plain/Button";
 const meta = {
   title: "Molecule/Toast",
   component: Toast,

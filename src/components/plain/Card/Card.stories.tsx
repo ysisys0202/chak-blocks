@@ -1,7 +1,7 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
 import { Card } from "./Card";
-import { pink } from "../../constants/colors";
+import { pink } from "../../../constants/colors";
 const meta = {
   title: "Atom/Card",
   component: Card,

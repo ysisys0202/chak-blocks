@@ -1,6 +1,6 @@
 import React from "react";
 import type { Meta, StoryObj } from "@storybook/react";
-import { gray } from "../../constants/colors";
+import { gray } from "../../../constants/colors";
 import { Icon, IconProps } from "./Icon";
 import { Typography } from "../Typography/Typography";
 import { svgs } from "./index";
