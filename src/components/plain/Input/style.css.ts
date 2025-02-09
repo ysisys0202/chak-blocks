@@ -52,6 +52,7 @@ export const inputStyles = recipe({
   base: {
     boxSizing: "border-box",
     margin: 0,
+    width: "100%",
     cursor: "pointer",
     border: "1px solid",
     outline: "none",
