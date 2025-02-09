@@ -41,7 +41,7 @@ export const inputFieldStyles = {
   textArea: style({
     position: "absolute",
     bottom: 0,
-    left: 0,
+    right: 0,
     transform: "translateY(calc(100% + 8px))",
   }),
 };
