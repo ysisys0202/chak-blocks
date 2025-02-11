@@ -12,6 +12,11 @@ import warningTriangle from "./svgs/warning-triangle.svg?react";
 import heart from "./svgs/heart.svg?react";
 import heartFilled from "./svgs/heart-filled.svg?react";
 import close from "./svgs/close.svg?react";
+import logout from "./svgs/logout.svg?react";
+import setting from "./svgs/setting.svg?react";
+import editRectangle from "./svgs/edit-rectangle.svg?react";
+import pin from "./svgs/pin.svg?react";
+import picture from "./svgs/picture.svg?react";
 
 export const svgs: { [key in IconProps["name"]]: SvgrComponent } = {
   arrow,
@@ -25,4 +30,9 @@ export const svgs: { [key in IconProps["name"]]: SvgrComponent } = {
   heart,
   "heart-filled": heartFilled,
   close,
+  logout,
+  setting,
+  pin,
+  "edit-rectangle": editRectangle,
+  picture,
 };

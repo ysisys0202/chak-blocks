@@ -13,7 +13,12 @@ export type IconProps = {
     | "warning-triangle"
     | "heart"
     | "heart-filled"
-    | "close";
+    | "close"
+    | "logout"
+    | "setting"
+    | "picture"
+    | "pin"
+    | "edit-rectangle";
 
   size?: number;
   color?: string;

@@ -46,6 +46,7 @@ export const Default: Story = {
       <div
         style={{
           display: "flex",
+          flexWrap: "wrap",
           gap: "20px",
         }}
       >
