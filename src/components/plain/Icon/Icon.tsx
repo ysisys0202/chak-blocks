@@ -18,7 +18,8 @@ export type IconProps = {
     | "setting"
     | "picture"
     | "pin"
-    | "edit-rectangle";
+    | "edit-rectangle"
+    | "home";
 
   size?: number;
   color?: string;

@@ -17,6 +17,7 @@ import setting from "./svgs/setting.svg?react";
 import editRectangle from "./svgs/edit-rectangle.svg?react";
 import pin from "./svgs/pin.svg?react";
 import picture from "./svgs/picture.svg?react";
+import home from "./svgs/home.svg?react";
 
 export const svgs: { [key in IconProps["name"]]: SvgrComponent } = {
   arrow,
@@ -35,4 +36,5 @@ export const svgs: { [key in IconProps["name"]]: SvgrComponent } = {
   pin,
   "edit-rectangle": editRectangle,
   picture,
+  home,
 };
