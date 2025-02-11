@@ -1,7 +1,6 @@
 import React, { forwardRef, SVGAttributes } from "react";
+import { svgs } from "./index";
 import { gray } from "@/constants/colors";
-import { useIcon } from "./useIcon";
-
 export type IconProps = {
   name:
     | "arrow"
@@ -31,11 +30,10 @@ export type SvgrComponent = React.FunctionComponent<
 
 export const Icon = forwardRef<SVGSVGElement, IconProps>(
   ({ name, size = 24, color = gray[800], ...props }, ref) => {
-    const { Icon } = useIcon(name);
-
-    if (!Icon) {
-      return null;
+    if (!svgs[name]) {
+      console.error(`${name} 아이콘이 존재하지 않습니다.`);
     }
+    const Icon = svgs[name];
 
     return (
       <Icon
