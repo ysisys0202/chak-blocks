@@ -4,6 +4,7 @@ import { combineClassNames } from "@/utils/common";
 import { inputFieldStyles } from "./style.css";
 
 export type InputFieldProps = {
+  id: string;
   label: string;
   helperText?: string;
   errorText?: string;
@@ -15,6 +16,7 @@ export type InputFieldProps = {
 export const InputField = forwardRef<HTMLElement, InputFieldProps>(
   (
     {
+      id,
       label,
       helperText,
       errorText,
@@ -35,18 +37,14 @@ export const InputField = forwardRef<HTMLElement, InputFieldProps>(
     return (
       <Component className={classNames} ref={ref} {...props}>
         {label && (
-          <Typography
-            variant="text1"
-            as="strong"
-            className={inputFieldStyles.label({ direction })}
-          >
+          <label htmlFor={id} className={inputFieldStyles.label({ direction })}>
             {label}
             {isRequired && (
-              <Typography variant="text1" theme="error" as="span">
+              <Typography variant="text1" theme="primary" as="span">
                 *
               </Typography>
             )}
-          </Typography>
+          </label>
         )}
         <div className={inputFieldStyles.inputArea}>
           {children}

@@ -1,5 +1,6 @@
 import { style } from "@vanilla-extract/css";
 import { recipe } from "@vanilla-extract/recipes";
+import { variantStyles as typographyVariantStyles } from "../Typography/style.css";
 
 const self = recipe({
   base: {
@@ -25,7 +26,7 @@ const self = recipe({
 export const inputFieldStyles = {
   self,
   label: recipe({
-    base: { display: "flex", gap: 4 },
+    base: [{ display: "flex", gap: 4, ...typographyVariantStyles.text1 }],
     variants: {
       direction: {
         horizontal: {
