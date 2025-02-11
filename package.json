@@ -12,14 +12,14 @@
       "types": "./dist/index.d.ts"
     },
     "./plain": {
+      "types": "./dist/components/plain/index.d.ts",
       "import": "./dist/plain/index.js",
-      "require": "./dist/plain/index.cjs",
-      "types": "./dist/components/plain/index.d.ts"
+      "require": "./dist/plain/index.cjs"
     },
     "./context": {
+      "types": "./dist/components/context/index.d.ts",
       "import": "./dist/context/index.js",
-      "require": "./dist/context/index.cjs",
-      "types": "./dist/components/context/index.d.ts"
+      "require": "./dist/context/index.cjs"
     },
     "./plain/style.css": "./dist/plain/index.css",
     "./context/style.css": "./dist/context/index.css"
