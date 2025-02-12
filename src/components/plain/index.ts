@@ -8,3 +8,4 @@ export * from "./RatingStar";
 export * from "./Skeleton";
 export * from "./ColorChip";
 export * from "./InputField";
+export * from "./Divider";
