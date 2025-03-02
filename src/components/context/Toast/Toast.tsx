@@ -62,11 +62,15 @@ export const Toast = forwardRef<HTMLDivElement, ToastProps>(
           </Button>
         )}
         <div className="content-area">
-          <Typography variant="title5" as="strong" theme="light">
+          <Typography variant="text1" as="strong" theme="light">
             {title}
           </Typography>
           {description && (
-            <Typography theme="light" className={toastDescriptionStyle}>
+            <Typography
+              variant="text2"
+              theme="light"
+              className={toastDescriptionStyle}
+            >
               {description}
             </Typography>
           )}
