@@ -4,6 +4,8 @@
 <br/>
 블록(컴포넌트)을 조립하여 빠르게 페이지를 만들기 위한 용도로 만들어졌습니다 🟦 🟥 🟨 &nbsp;&nbsp;➡️ &nbsp;🏡
 
+🎨 [Chak Block의 스토리북](https://main--678d86d905c56bc74be0b58c.chromatic.com)에서 모든 컴포넌트를 직접 확인해보세요.
+
 ### Features ✨
 
 - 서버 컴포넌트를 지원합니다 🌐
@@ -89,7 +91,6 @@ export default function Component {
 
 Chak-Blocks에서 제공하는 UI입니다.
 <br/>
-🎨 [Chak Block의 스토리북](https://main--678d86d905c56bc74be0b58c.chromatic.com)에서 모든 컴포넌트를 직접 확인해보세요.
 
 #### Typography
 
